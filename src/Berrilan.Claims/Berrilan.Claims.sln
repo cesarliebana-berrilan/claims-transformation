@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berrilan.Claims.Core", "Berrilan.Claims.Core\Berrilan.Claims.Core.csproj", "{0648FAA0-4267-4F69-9362-83AAAB7A92D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berrilan.Claims.Api", "Berrilan.Claims.Api\Berrilan.Claims.Api.csproj", "{2979E0BF-A9EF-4906-BF8D-192F3CA3B0F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berrilan.Claims.Web", "Berrilan.Claims.Web\Berrilan.Claims.Web.csproj", "{52F3B776-3132-4BAF-8447-7985E620D4B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berrilan.Claims.WebAuthentication", "Berrilan.Claims.WebAuthentication\Berrilan.Claims.WebAuthentication.csproj", "{ADA88816-8B75-4F2F-9253-9E7C4F26B246}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{2979E0BF-A9EF-4906-BF8D-192F3CA3B0F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2979E0BF-A9EF-4906-BF8D-192F3CA3B0F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2979E0BF-A9EF-4906-BF8D-192F3CA3B0F4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52F3B776-3132-4BAF-8447-7985E620D4B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52F3B776-3132-4BAF-8447-7985E620D4B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52F3B776-3132-4BAF-8447-7985E620D4B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52F3B776-3132-4BAF-8447-7985E620D4B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA88816-8B75-4F2F-9253-9E7C4F26B246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA88816-8B75-4F2F-9253-9E7C4F26B246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA88816-8B75-4F2F-9253-9E7C4F26B246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA88816-8B75-4F2F-9253-9E7C4F26B246}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
