@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berrilan.Claims.WebAuthenti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berrilan.Claims.Blazor8", "Berrilan.Claims.Blazor8\Berrilan.Claims.Blazor8.csproj", "{44A68CAF-BD38-4AF8-9F41-CD2F739E8213}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{F5EA1FEB-09B1-42EB-84D7-66A2A6338327}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0648FAA0-4267-4F69-9362-83AAAB7A92D7} = {F5EA1FEB-09B1-42EB-84D7-66A2A6338327}
+		{2979E0BF-A9EF-4906-BF8D-192F3CA3B0F4} = {F5EA1FEB-09B1-42EB-84D7-66A2A6338327}
+		{ADA88816-8B75-4F2F-9253-9E7C4F26B246} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{44A68CAF-BD38-4AF8-9F41-CD2F739E8213} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {796558D6-7CFD-4571-B229-F5F10CD12B9A}
