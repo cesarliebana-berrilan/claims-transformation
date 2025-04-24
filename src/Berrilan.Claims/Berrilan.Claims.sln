@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berrilan.Claims.Api", "Berr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berrilan.Claims.WebAuthentication", "Berrilan.Claims.WebAuthentication\Berrilan.Claims.WebAuthentication.csproj", "{ADA88816-8B75-4F2F-9253-9E7C4F26B246}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berrilan.Claims.Blazor8", "Berrilan.Claims.Blazor8\Berrilan.Claims.Blazor8.csproj", "{44A68CAF-BD38-4AF8-9F41-CD2F739E8213}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{ADA88816-8B75-4F2F-9253-9E7C4F26B246}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADA88816-8B75-4F2F-9253-9E7C4F26B246}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADA88816-8B75-4F2F-9253-9E7C4F26B246}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44A68CAF-BD38-4AF8-9F41-CD2F739E8213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A68CAF-BD38-4AF8-9F41-CD2F739E8213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A68CAF-BD38-4AF8-9F41-CD2F739E8213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A68CAF-BD38-4AF8-9F41-CD2F739E8213}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

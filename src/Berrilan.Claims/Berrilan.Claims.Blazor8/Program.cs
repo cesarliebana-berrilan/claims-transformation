@@ -1,7 +1,6 @@
-using Berrilan.Claims.WebAuthentication;
+using Berrilan.Claims.Blazor8;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -11,11 +10,11 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 builder.Services.AddOidcAuthentication(options =>
 {
-    builder.Configuration.Bind("AuthSettings", options.ProviderOptions);
+    builder.Configuration.Bind("Local", options.ProviderOptions);
     options.ProviderOptions.DefaultScopes.Clear();
-    options.ProviderOptions.DefaultScopes.Add("user-profile:read");
-    options.ProviderOptions.ResponseType = OpenIdConnectResponseType.Code;
-    options.ProviderOptions.RedirectUri = $"{builder.HostEnvironment.BaseAddress}authentication/login-callback";
-});
+    options.ProviderOptions.DefaultScopes.Add("openid");
+    options.ProviderOptions.DefaultScopes.Add("profile");
+    //options.ProviderOptions.DefaultScopes.Add("user-profile:read");
+}).AddAccountClaimsPrincipalFactory<CustomUserFactory>(); 
 
 await builder.Build().RunAsync();
