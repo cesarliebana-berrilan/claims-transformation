@@ -1,0 +1,23 @@
+﻿@page "/me"
+@attribute [Authorize]
+
+<PageTitle>Me</PageTitle>
+
+<h1>Me</h1>
+
+<ul>
+    <li>Name: @response.Name</li>
+    <li>Customer: @response.CustomerId</li>
+    <li>License: @response.License</li>
+    <li>Role: @response.Role</li>
+</ul>
+
+@code {
+    private GetMeResponse response;
+
+    protected override async Task OnInitializedAsync()
+    {
+        response = new(Guid.NewGuid(), "admin", "enterprise", "name");
+    }
+}
+
