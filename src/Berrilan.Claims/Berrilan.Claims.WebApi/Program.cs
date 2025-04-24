@@ -5,6 +5,8 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Berrilan.Claims.Core.Features.Me;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,18 +17,11 @@ builder.Services.AddDbContext<AppDbContext>((sp, options) => options
     .UseNpgsql(builder.Configuration.GetConnectionString("AppConnection"))
     .UseSnakeCaseNamingConvention());
 
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(builder =>
-    {
-        builder.AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader();
-    });
-});
-
+builder.Services.AddSecurityLayer();
 builder.Services.AddExceptionHandlers();
 builder.Services.AddCoreServices();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<IUserContext, UserContext>();
 
 var app = builder.Build();
 
@@ -38,6 +33,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseExceptionHandler();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapGet($"/me", async ([FromServices] ISender sender) =>
 {
@@ -45,6 +43,7 @@ app.MapGet($"/me", async ([FromServices] ISender sender) =>
     return TypedResults.Ok(response);
 })
 .WithName("Me")
+.RequireAuthorization()
 .Produces(StatusCodes.Status401Unauthorized)
 .Produces(StatusCodes.Status404NotFound)
 .Produces(StatusCodes.Status500InternalServerError);
