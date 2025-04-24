@@ -1,6 +1,6 @@
-﻿using Berrilan.Claims.Api.ExceptionHandlers;
+﻿using Berrilan.Claims.WebApi.ExceptionHandlers;
 
-namespace Berrilan.Claims.Api;
+namespace Berrilan.Claims.WebApi;
 
 public static class DependencyInjection
 {
