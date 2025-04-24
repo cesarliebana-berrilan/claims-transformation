@@ -1,6 +1,8 @@
 ﻿@page "/me"
 @attribute [Authorize]
 
+@inject ApiService apiService;
+
 <PageTitle>Me</PageTitle>
 
 <h1>Me</h1>
@@ -17,7 +19,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        response = new(Guid.NewGuid(), "admin", "enterprise", "name");
+        response = await apiService.GetMe();
+        //response = new(Guid.NewGuid(), "admin", "enterprise", "name");
     }
 }
 
