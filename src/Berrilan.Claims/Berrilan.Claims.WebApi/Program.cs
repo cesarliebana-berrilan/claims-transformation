@@ -1,22 +1,15 @@
-using Berrilan.Claims.Core.Persistence;
 using Berrilan.Claims.WebApi;
 using Berrilan.Claims.Core;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Berrilan.Claims.Core.Features.Me;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddDbContext<AppDbContext>((sp, options) => options
-    .UseNpgsql(builder.Configuration.GetConnectionString("AppConnection"))
-    .UseSnakeCaseNamingConvention());
-
+builder.Services.AddJsonTransforms();
+builder.Services.AddDatabase(builder.Configuration.GetConnectionString("AppConnection"));
 builder.Services.AddSecurityLayer();
 builder.Services.AddExceptionHandlers();
 builder.Services.AddCoreServices();
@@ -25,7 +18,6 @@ builder.Services.AddTransient<IUserContext, UserContext>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
