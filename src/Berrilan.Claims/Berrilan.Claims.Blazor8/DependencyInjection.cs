@@ -25,9 +25,12 @@ internal static class DependencyInjection
         services.AddOidcAuthentication(options =>
         {
             configuration.Bind("Oidc", options.ProviderOptions);
+            options.ProviderOptions.AdditionalProviderParameters.Add("audience", configuration["Oidc:Audience"]!);
             options.ProviderOptions.DefaultScopes.Clear();
             options.ProviderOptions.DefaultScopes.Add("openid");
             options.ProviderOptions.DefaultScopes.Add("profile");
+            options.ProviderOptions.DefaultScopes.Add("email");
+            options.ProviderOptions.DefaultScopes.Add("offline_access");            
         }).AddAccountClaimsPrincipalFactory<CustomUserFactory>();
 
     }
