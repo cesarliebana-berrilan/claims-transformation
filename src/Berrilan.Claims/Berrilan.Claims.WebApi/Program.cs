@@ -1,8 +1,7 @@
 using Berrilan.Claims.WebApi;
 using Berrilan.Claims.Core;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Berrilan.Claims.Core.Features.Me;
+using Berrilan.Claims.Core.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,10 +29,14 @@ app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapGet($"/me", async ([FromServices] ISender sender) =>
+app.MapGet($"/me", async (HttpContext ctx) =>
 {
-    GetMeResponse response = await sender.Send(new GetMeQuery());
-    return TypedResults.Ok(response);
+    IUserContext userContext = ctx.RequestServices.GetRequiredService<IUserContext>();
+    string token = ctx.Request.Headers.Authorization.ToString().Substring(7);
+    UserInfo userInfo = await userContext.GetUserInfo(token)
+        ?? throw new CredentialNotValidException($"User not authorized");
+       
+    return TypedResults.Ok(userInfo);
 })
 .WithName("Me")
 .RequireAuthorization()

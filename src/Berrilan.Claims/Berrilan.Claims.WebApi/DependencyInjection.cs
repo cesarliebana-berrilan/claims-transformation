@@ -41,10 +41,11 @@ public static class DependencyInjection
         services.AddAuthentication("Bearer")
             .AddJwtBearer("Bearer", options =>
             {
-                options.Authority = "https://dev-p0l12h5nf4knxfyk.eu.auth0.com/";
+                options.Authority = "https://developer.api.autodesk.com/";
+                options.SaveToken = true;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateAudience = false,
+                    ValidateAudience = false
                 };
             });
         services.AddAuthorization();

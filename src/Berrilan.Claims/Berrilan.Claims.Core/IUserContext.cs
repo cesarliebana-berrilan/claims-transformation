@@ -1,4 +1,6 @@
-﻿namespace Berrilan.Claims.Core;
+﻿using Berrilan.Claims.Core.Domain;
+
+namespace Berrilan.Claims.Core;
 
 public interface IUserContext
 {
@@ -9,6 +11,8 @@ public interface IUserContext
     Guid CustomerId { get; }
 
     string LicenseId { get; }
+
+    Task<UserInfo?> GetUserInfo(string accessToken);
 }
 
 public enum CustomClaimTypes
@@ -17,3 +21,5 @@ public enum CustomClaimTypes
     Customer,
     License
 }
+
+public record UserInfo(Guid Id, Guid CustomerId, License License, Role Role, bool IsRoot, string Email, string Name, string Picture);

@@ -28,9 +28,11 @@ internal static class DependencyInjection
             options.ProviderOptions.AdditionalProviderParameters.Add("audience", configuration["Oidc:Audience"]!);
             options.ProviderOptions.DefaultScopes.Clear();
             options.ProviderOptions.DefaultScopes.Add("openid");
-            options.ProviderOptions.DefaultScopes.Add("profile");
-            options.ProviderOptions.DefaultScopes.Add("email");
-            options.ProviderOptions.DefaultScopes.Add("offline_access");            
+            //options.ProviderOptions.DefaultScopes.Add("user-profile:read");
+            //options.ProviderOptions.DefaultScopes.Add("openid");
+            //options.ProviderOptions.DefaultScopes.Add("profile");
+            //options.ProviderOptions.DefaultScopes.Add("email");
+            //options.ProviderOptions.DefaultScopes.Add("offline_access");            
         }).AddAccountClaimsPrincipalFactory<CustomUserFactory>();
 
     }
