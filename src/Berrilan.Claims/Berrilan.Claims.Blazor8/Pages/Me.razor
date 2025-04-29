@@ -1,7 +1,8 @@
 ﻿@page "/me"
+@using System.Security.Claims
 @attribute [Authorize]
 
-@inject ApiService apiService;
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 <PageTitle>Me</PageTitle>
 
@@ -19,8 +20,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        response = await apiService.GetMe();
-        //response = new(Guid.NewGuid(), "admin", "enterprise", "name");
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        ClaimsPrincipal user = authState.User;
     }
 }
 
